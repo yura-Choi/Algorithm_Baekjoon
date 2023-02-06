@@ -1,7 +1,6 @@
 import sys
-from collections import deque
 
-stack = deque()
+stack = []
 K = int(sys.stdin.readline())
 for i in range(K):
     num = int(sys.stdin.readline())
