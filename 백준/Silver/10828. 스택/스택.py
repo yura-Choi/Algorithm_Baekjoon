@@ -1,7 +1,6 @@
 import sys
-from collections import deque
 
-stack = deque()
+stack = []
 size = 0
 
 N = int(sys.stdin.readline())
