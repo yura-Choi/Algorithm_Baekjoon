@@ -6,7 +6,7 @@ size = 0
 
 N = int(sys.stdin.readline())
 for i in range(N):
-    command = list(sys.stdin.readline().split())
+    command = sys.stdin.readline().split()
     if command[0] == "push":
         stack.append(command[1])
         size += 1
