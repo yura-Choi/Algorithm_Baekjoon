@@ -10,13 +10,9 @@ def test_vps(ps: str) -> bool:
             if len(stack) == 0 or stack.pop() != "(":
                 return False
 
-    if len(stack) == 0:
-        return True
-    else:
-        return False
+    return True if len(stack) == 0 else False
 
 T = int(sys.stdin.readline())
-
 for i in range(T):
     ps = sys.stdin.readline().rstrip()
     if test_vps(ps):
