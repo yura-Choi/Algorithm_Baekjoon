@@ -3,7 +3,6 @@ trees = list(map(int, input().split()))
 
 # parametric search
 start, end = 0, max(trees)
-last_answer = -1
 while start <= end:
     mid = (start + end) // 2
 
@@ -18,4 +17,4 @@ while start <= end:
     else:
         end = mid - 1
 
-print(last_answer)
+print(end)
