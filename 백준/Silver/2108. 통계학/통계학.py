@@ -6,25 +6,23 @@ arr = []
 for _ in range(N):
     arr.append(int(sys.stdin.readline()))
 
-# average
-average = round(sum(arr) / N)
-print(average)
+arr = sorted(arr)
 
-sorted_arr = sorted(arr)
+# average
+print(round(sum(arr) / N))
+
 # mid
-mid = sorted_arr[N//2]
-print(mid)
+print(arr[N//2])
 
 # most appearing
 counter = Counter(arr)
-most_comm = counter.most_common(N)
+most_comm = counter.most_common()
 most_comm.sort(key=lambda x : (x[1], -x[0]), reverse=True)
-count = most_comm[0][0]
 if len(most_comm) > 1 and most_comm[1][1] == most_comm[0][1]:
-    count = most_comm[1][0]
-print(count)
+    print(most_comm[1][0])
+else:
+    print(most_comm[0][0])
 
 # range
-range_len = max(arr) - min(arr)
-print(range_len)
+print(arr[N-1] - arr[0])
 
