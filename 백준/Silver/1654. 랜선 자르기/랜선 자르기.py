@@ -1,24 +1,28 @@
 import sys
 
+
+def check_condition(cable, length, goal) -> bool:
+    count = 0
+    for e in cable:
+        count += e // length
+    if count >= goal:
+        return True
+    else:
+        return False
+
+
 count_tohave, count_tomake = map(int, sys.stdin.readline().split())
 cable = []
 for _ in range(count_tohave):
     cable.append(int(sys.stdin.readline()))
 
 # parametric search
-start, end = 1, max(cable)
-save_status = -1
-while start <= end:
-    mid = (start + end) // 2
+low, high = 1, max(cable) + 1
+while (high - low) > 1:
+    mid = (high + low) // 2
+    if check_condition(cable, mid, count_tomake):
+        low = mid
+    else:
+        high = mid
 
-    # condition check
-    count = 0
-    for e in cable:
-        count += e // mid
-    if count >= count_tomake: # go to longer length
-        start = mid + 1
-        save_status = mid
-    else: # go to shorter length
-        end = mid - 1
-
-print(save_status)
+print(low)
