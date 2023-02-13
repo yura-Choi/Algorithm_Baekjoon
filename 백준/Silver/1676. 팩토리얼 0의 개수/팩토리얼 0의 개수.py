@@ -2,10 +2,11 @@ import math
 
 N = int(input())
 
-factorial_N = str(math.factorial(N))
+factorial_N = str(math.factorial(N))[::-1]
+
 count = 0
-for i in range(len(factorial_N)-1, -1, -1):
-    if factorial_N[i] == '0':
+for e in factorial_N:
+    if e == '0':
         count += 1
     else:
         break
