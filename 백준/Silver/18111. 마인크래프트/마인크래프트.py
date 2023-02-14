@@ -1,5 +1,4 @@
 import sys
-from collections import Counter
 
 
 def check_condition(my_block, height, min_duration) -> (bool, int):
