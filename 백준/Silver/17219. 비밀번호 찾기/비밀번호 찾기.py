@@ -6,8 +6,9 @@ for _ in range(saved_num):
     site_name, password = sys.stdin.readline().split()
     sites[site_name] = password
 
-result = ""
+result = []
 for _ in range(find_num):
     find_name = sys.stdin.readline().rstrip()
-    result += sites[find_name]+"\n"
-print(result)
+    result.append(sites[find_name])
+
+print(*result, sep='\n')
