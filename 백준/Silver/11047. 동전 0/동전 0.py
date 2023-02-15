@@ -9,7 +9,7 @@ for money in coin:
     if money > K:
         continue
 
-    while K >= money:
+    if K >= money:
         count += int(K / money)
         K %= money
 
