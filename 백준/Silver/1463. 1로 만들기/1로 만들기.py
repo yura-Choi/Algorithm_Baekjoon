@@ -1,14 +1,26 @@
 x = int(input())
-cache = [0] * x
+cache = [-1] * x
 
-for n in range(2, x+1):
-    case = []
-    if n % 3 == 0:
-        case.append(1 + cache[(n//3)-1])
-    if n % 2 == 0:
-        case.append(1 + cache[(n//2)-1])
-    case.append(1 + cache[(n-1)-1])
-    
-    cache[n-1] = min(case)
 
-print(cache[x-1])
+def solve(n):
+    global cache
+
+    if n == 1:
+        return 0
+
+    if cache[n-1] != -1:
+        return cache[n-1]
+
+    if n % 3 == 0 and n % 2 == 0:
+        cache[n-1] = 1 + min(solve(n//3), solve(n//2))
+    elif n % 3 == 0:
+        cache[n-1] = 1 + min(solve(n//3), solve(n-1))
+    elif n % 2 == 0:
+        cache[n-1] = 1 + min(solve(n//2), solve(n-1))
+    else:
+        cache[n-1] = 1 + solve(n-1)
+
+    return cache[n-1]
+
+
+print(solve(x))
