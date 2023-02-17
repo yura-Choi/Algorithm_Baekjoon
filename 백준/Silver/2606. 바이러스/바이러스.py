@@ -2,10 +2,6 @@ import sys
 
 
 def DFS(node_num: int) -> int:
-    # check visited node
-    if is_visited[node_num-1] == 1:
-        return 0
-
     is_visited[node_num-1] = 1
     count = 0
     for node in adjacency_list[node_num]:
