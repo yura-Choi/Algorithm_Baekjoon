@@ -25,6 +25,4 @@ for i in range(N):
     bfs(i, N)
 
 for i in range(N):
-    for j in range(N):
-        print(matrix[i][j], end=" ")
-    print()
+    print(*matrix[i])
